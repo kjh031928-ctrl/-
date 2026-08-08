@@ -184,6 +184,24 @@ chk("배포 ONNX2 in-sample RMSE", rmse(run(s2, Xva), yva), 0.114, 5e-4, " kPa")
 anc = df[df.Campaign == "10/12"]
 chk("10/12 앵커 배포 ONNX1 예측", float(run(s1, anc[IC].values).mean()), 0.6093, 5e-4)
 
+# --------------------------------------------------------------- 부록 C 표 C2
+print("\n" + "=" * 88)
+print("부록 C 표 C2 — 삭제검사 (물리 3변수 중 하나 제거 시 held-out 오차 배수)")
+print("=" * 88)
+# 주의: 부록 C 는 L1 재현스크립트와 같은 기준, 즉 **raw-X · r0 라벨**로 계산돼 있다.
+#       (로짓 기준으로 재면 배수가 ×11.7·×5.9·×2.8 로 전혀 달라진다.)
+print("  기준: raw-X · r0 라벨 (부록 C 전체가 L1 스크립트와 같은 기준)")
+for cols, ycol, refs, tag in ((IC, "X_conv_r0", (7.2, 4.5, 2.1), "전환율"),
+                              (ID, "DP_reactor_kPa", (3.8, 34.0, 1.7), "ΔP")):
+    def _ev(cs):
+        mm = LinearRegression().fit(tr[cs].values, tr[ycol].values)
+        return rmse(mm.predict(va[cs].values), va[ycol].values)
+    base = _ev(cols)
+    for c, ref in zip(cols, refs):
+        mult = _ev([x for x in cols if x != c]) / base
+        # 기재값이 유효숫자 2자리라 상대 10% 허용
+        chk(f"{tag} 삭제검사 [{c} 제거]", mult, ref, 0.10 * ref, "배")
+
 # --------------------------------------------------------------- 판정
 print("\n" + "=" * 88)
 if FAIL:
