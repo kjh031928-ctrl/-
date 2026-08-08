@@ -48,12 +48,13 @@
 | `ML_마스터데이터_PV_컬럼사전.md` | 위 CSV의 컬럼 정의 — 입력 / 라벨 / **입력 금지(누출) 컬럼** 구분 |
 | `figures/` | 확정 그림 F1(ΔP 물리 방향성) · F2(ΔP parity) · F3(전환율 parity) + 생성 스크립트 `make_figures.py` |
 | `results/permutation_importance.json` | 표 C4 순열 중요도 산출 결과 |
+| `results/screening_all_models.json` | §3.5.1 후보 25종의 RMSE·물리검사 실측 원자료 |
 | `대단원3_보고서작성/` | 보고서 작성용 자료 모음(초안·그림·데이터·문제 PDF 사본) |
 | `2026-07-21_ML개발/docs/` | 개발 과정 기록 — 모델 비교·시행착오 전과정·질의응답 준비 |
 | `2026-07-21_ML개발/src/` · `.../results/` | 학습 파이프라인 코드와 단계별 실험 결과 |
 | `CLAUDE.md` | 작업 규칙과 확정 사항 기록 (§5 요약의 원문) |
 
-재현 스크립트(루트): `permutation_importance_검증.py`(표 C4 순열 중요도) · `스크리닝_재현_24종.py`(§3.5.1 24종 RMSE + 365°C clamp 실측) · `압력변수_제외근거_검증.py` · `지연효과_검증.py` · `ML_마스터데이터_PV_생성.py` · `figures/make_figures.py`.
+재현 스크립트(루트): `permutation_importance_검증.py`(표 C4 순열 중요도) · `스크리닝_재현_전종.py`(§3.5.1 25종 RMSE + 365°C clamp 실측) · `압력변수_제외근거_검증.py` · `지연효과_검증.py` · `ML_마스터데이터_PV_생성.py` · `figures/make_figures.py`.
 
 배포 ONNX는 `2026-07-21_ML개발/onnx/`와 `대단원3_보고서작성/요청 자료/` 두 곳에 같은 파일이 있다. 아래 재현 코드는 두 경로 중 있는 쪽을 자동으로 찾는다.
 
@@ -109,6 +110,7 @@ in-sample RMSE : X 0.0182 | dP 0.1142 kPa
 
 ```bash
 python permutation_importance_검증.py    # 표 C4 순열 중요도
+python 스크리닝_재현_전종.py              # §3.5.1 후보 25종 (pip install xgboost catboost lightgbm 필요)
 python figures/make_figures.py           # 그림 F1~F3 재생성
 ```
 
