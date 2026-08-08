@@ -1,0 +1,266 @@
+{
+  "생성_스크립트": "permutation_importance_검증.py",
+  "설명": "표 C4 순열 중요도(permutation importance) — 60분 블록 셔플",
+  "설정": {
+    "block_rows": 60,
+    "n_repeat": 200,
+    "seed": 42,
+    "중요도_정의": "ΔRMSE = 셔플 후 RMSE − baseline RMSE (클수록 중요)",
+    "정규화": "각 입력의 ΔRMSE / 세 입력 ΔRMSE 합 × 100 [%]",
+    "grouped_셔플": "|피어슨 상관|이 가장 큰 입력 쌍을 같은 블록순서로 동시 셔플"
+  },
+  "데이터": {
+    "csv": "ML_마스터데이터_PV.csv",
+    "n_rows_total": 3066,
+    "onnx1": "2026-07-21_ML개발/onnx/reactor_conversion_r1.onnx",
+    "onnx2": "2026-07-21_ML개발/onnx/reactor_dp.onnx",
+    "입력_전환율": [
+      "TT-1006.PV",
+      "FT-1004.PV",
+      "FRC-1004.PV"
+    ],
+    "입력_ΔP": [
+      "TT-1006.PV",
+      "total_flow_kgh",
+      "FRC-1004.PV"
+    ],
+    "타깃_전환율": "X_conv_r1_deployed",
+    "타깃_ΔP": "DP_reactor_kPa"
+  },
+  "사전점검": {
+    "onnx2_배포계수_대조_max오차": 4.2300481410961766e-05,
+    "판정": "통과 (<1e-4)"
+  },
+  "a_배포ONNX_in_sample_전구간3066행": {
+    "conversion": {
+      "n_rows": 3066,
+      "n_blocks": 52,
+      "block_sizes_last": 6,
+      "baseline_rmse": 0.014533726872573727,
+      "per_input": {
+        "TT-1006.PV": {
+          "delta_rmse_mean": 0.17099295570542253,
+          "delta_rmse_std": 0.011966468202731444,
+          "delta_rmse_se": 0.0008461570813004601,
+          "share_pct": 56.464065808554324
+        },
+        "FT-1004.PV": {
+          "delta_rmse_mean": 0.09853796622579722,
+          "delta_rmse_std": 0.007543465913867693,
+          "delta_rmse_se": 0.0005334035901345423,
+          "share_pct": 32.53849953444647
+        },
+        "FRC-1004.PV": {
+          "delta_rmse_mean": 0.033304081635804714,
+          "delta_rmse_std": 0.003137026059606604,
+          "delta_rmse_se": 0.00022182123995067443,
+          "share_pct": 10.9974346569992
+        }
+      },
+      "delta_sum": 0.3028350035670245,
+      "grouped": {
+        "cols": [
+          "FT-1004.PV",
+          "FRC-1004.PV"
+        ],
+        "delta_rmse_mean": 0.08274573743526335,
+        "delta_rmse_std": 0.006787581932986613,
+        "delta_rmse_se": 0.00047995452126741285
+      },
+      "pairwise_corr": {
+        "TT-1006.PV × FT-1004.PV": -0.3361842050211616,
+        "TT-1006.PV × FRC-1004.PV": -0.11741224737814716,
+        "FT-1004.PV × FRC-1004.PV": -0.5415280023455853
+      },
+      "max_abs_corr_pair": "FT-1004.PV × FRC-1004.PV"
+    },
+    "dp": {
+      "n_rows": 3066,
+      "n_blocks": 52,
+      "block_sizes_last": 6,
+      "baseline_rmse": 0.11555977823113533,
+      "per_input": {
+        "TT-1006.PV": {
+          "delta_rmse_mean": 0.4999143918634927,
+          "delta_rmse_std": 0.040409339343829544,
+          "delta_rmse_se": 0.0028573717873290223,
+          "share_pct": 9.503538339949309
+        },
+        "total_flow_kgh": {
+          "delta_rmse_mean": 4.478078409766984,
+          "delta_rmse_std": 0.309890076428342,
+          "delta_rmse_se": 0.02191253744648981,
+          "share_pct": 85.12975531246678
+        },
+        "FRC-1004.PV": {
+          "delta_rmse_mean": 0.2823047210515772,
+          "delta_rmse_std": 0.027179495656447564,
+          "delta_rmse_se": 0.0019218805687904385,
+          "share_pct": 5.366706347583915
+        }
+      },
+      "delta_sum": 5.260297522682054,
+      "grouped": {
+        "cols": [
+          "TT-1006.PV",
+          "total_flow_kgh"
+        ],
+        "delta_rmse_mean": 4.213484365547846,
+        "delta_rmse_std": 0.29668067192115377,
+        "delta_rmse_se": 0.020978491496242917
+      },
+      "pairwise_corr": {
+        "TT-1006.PV × total_flow_kgh": -0.49253597727309195,
+        "TT-1006.PV × FRC-1004.PV": -0.11741224737814716,
+        "total_flow_kgh × FRC-1004.PV": 0.17726579716484048
+      },
+      "max_abs_corr_pair": "TT-1006.PV × total_flow_kgh"
+    },
+    "기준값_대조": {
+      "기준": {
+        "conversion": {
+          "baseline": 0.0145,
+          "delta": {
+            "TT-1006.PV": 0.171,
+            "FT-1004.PV": 0.099,
+            "FRC-1004.PV": 0.033
+          },
+          "share_pct": {
+            "TT-1006.PV": 56.4,
+            "FT-1004.PV": 32.6,
+            "FRC-1004.PV": 11.0
+          },
+          "grouped": 0.082,
+          "max_abs_corr": 0.54
+        },
+        "dp": {
+          "baseline": 0.116,
+          "delta": {
+            "TT-1006.PV": 0.499,
+            "total_flow_kgh": 4.466,
+            "FRC-1004.PV": 0.285
+          },
+          "share_pct": {
+            "TT-1006.PV": 9.5,
+            "total_flow_kgh": 85.1,
+            "FRC-1004.PV": 5.4
+          },
+          "grouped": 4.22,
+          "max_abs_corr": 0.49
+        }
+      },
+      "불일치": []
+    }
+  },
+  "b_heldout_재적합_13to16_적합_17to18_평가": {
+    "모델레시피": "figures/make_figures.py 와 동일 (전환율 로짓-선형 · ΔP 선형, 무가중)",
+    "conversion": {
+      "n_rows": 661,
+      "n_blocks": 12,
+      "block_sizes_last": 1,
+      "baseline_rmse": 0.02098700107916805,
+      "per_input": {
+        "TT-1006.PV": {
+          "delta_rmse_mean": 0.18804216052005798,
+          "delta_rmse_std": 0.03419343083523301,
+          "delta_rmse_se": 0.0024178406815626454,
+          "share_pct": 74.2567999429095
+        },
+        "FT-1004.PV": {
+          "delta_rmse_mean": 0.04622035891638117,
+          "delta_rmse_std": 0.010442436081208649,
+          "delta_rmse_se": 0.0007383917365129712,
+          "share_pct": 18.252161833553746
+        },
+        "FRC-1004.PV": {
+          "delta_rmse_mean": 0.01896972416230138,
+          "delta_rmse_std": 0.005464598010817184,
+          "delta_rmse_se": 0.00038640543099073495,
+          "share_pct": 7.491038223536763
+        }
+      },
+      "delta_sum": 0.2532322435987405,
+      "grouped": {
+        "cols": [
+          "FT-1004.PV",
+          "FRC-1004.PV"
+        ],
+        "delta_rmse_mean": 0.04665589240476402,
+        "delta_rmse_std": 0.010907791961904922,
+        "delta_rmse_se": 0.0007712973664035086
+      },
+      "pairwise_corr": {
+        "TT-1006.PV × FT-1004.PV": -0.18473794060536353,
+        "TT-1006.PV × FRC-1004.PV": 0.1997393937861401,
+        "FT-1004.PV × FRC-1004.PV": -0.3045246993725369
+      },
+      "max_abs_corr_pair": "FT-1004.PV × FRC-1004.PV"
+    },
+    "dp": {
+      "n_rows": 661,
+      "n_blocks": 12,
+      "block_sizes_last": 1,
+      "baseline_rmse": 0.1909675803301893,
+      "per_input": {
+        "TT-1006.PV": {
+          "delta_rmse_mean": 0.5764870151768672,
+          "delta_rmse_std": 0.11446411128912277,
+          "delta_rmse_se": 0.008093834929503036,
+          "share_pct": 13.532803230129927
+        },
+        "total_flow_kgh": {
+          "delta_rmse_mean": 3.5432811375068103,
+          "delta_rmse_std": 0.5722363352014509,
+          "delta_rmse_se": 0.04046321930622842,
+          "share_pct": 83.17711441982662
+        },
+        "FRC-1004.PV": {
+          "delta_rmse_mean": 0.14015497908369665,
+          "delta_rmse_std": 0.04025506632260435,
+          "delta_rmse_se": 0.0028464630373827753,
+          "share_pct": 3.2900823500434515
+        }
+      },
+      "delta_sum": 4.2599231317673745,
+      "grouped": {
+        "cols": [
+          "total_flow_kgh",
+          "FRC-1004.PV"
+        ],
+        "delta_rmse_mean": 3.3817437254773663,
+        "delta_rmse_std": 0.5396961322242244,
+        "delta_rmse_se": 0.038162279487590066
+      },
+      "pairwise_corr": {
+        "TT-1006.PV × total_flow_kgh": -0.011993911686892197,
+        "TT-1006.PV × FRC-1004.PV": 0.1997393937861401,
+        "total_flow_kgh × FRC-1004.PV": 0.5091481865034079
+      },
+      "max_abs_corr_pair": "total_flow_kgh × FRC-1004.PV"
+    }
+  },
+  "순위_대조": {
+    "전환율_a": [
+      "TT-1006.PV",
+      "FT-1004.PV",
+      "FRC-1004.PV"
+    ],
+    "전환율_b": [
+      "TT-1006.PV",
+      "FT-1004.PV",
+      "FRC-1004.PV"
+    ],
+    "전환율_일치": true,
+    "ΔP_a": [
+      "total_flow_kgh",
+      "TT-1006.PV",
+      "FRC-1004.PV"
+    ],
+    "ΔP_b": [
+      "total_flow_kgh",
+      "TT-1006.PV",
+      "FRC-1004.PV"
+    ],
+    "ΔP_일치": true
+  }
+}
