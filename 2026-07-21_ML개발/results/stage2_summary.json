@@ -1,0 +1,41 @@
+{
+  "winner_block20": {
+    "model": "Poly 2차",
+    "transform": "log1m",
+    "block20": 0.007284,
+    "valid": 0.015931
+  },
+  "structural_safe_winner": {
+    "model": "Ridge Poly2",
+    "transform": "logit",
+    "block20": 0.007409,
+    "valid": 0.019293
+  },
+  "per_transform": {
+    "raw": {
+      "mean_out_of_range": 9.0,
+      "any_out": true,
+      "all_onnx": true
+    },
+    "logit": {
+      "mean_out_of_range": 0.0,
+      "any_out": false,
+      "all_onnx": true
+    },
+    "log": {
+      "mean_out_of_range": 8.4,
+      "any_out": true,
+      "all_onnx": true
+    },
+    "log1m": {
+      "mean_out_of_range": 0.2,
+      "any_out": true,
+      "all_onnx": true
+    },
+    "arcsin": {
+      "mean_out_of_range": 0.0,
+      "any_out": false,
+      "all_onnx": true
+    }
+  }
+}

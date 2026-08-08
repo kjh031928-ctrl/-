@@ -1,0 +1,34 @@
+{
+  "model": "linear2_ridge_a0.001",
+  "feature_set": "I3",
+  "label": "r1",
+  "weighted": true,
+  "hyperparams": {
+    "method": "ridge",
+    "alpha": 0.001,
+    "postprocess": "hardclip",
+    "logit_eps": null
+  },
+  "seed": 42,
+  "timestamp": "2026-07-22T07:58:48.918713+00:00",
+  "n_train": 1924,
+  "n_valid": 661,
+  "metrics": {
+    "conversion": {
+      "rmse": 0.03313793446725363,
+      "mae": 0.0223916006774859,
+      "mape": 3.0957315745233327,
+      "r2": 0.957370813636819
+    },
+    "cumene_kgh": {
+      "rmse": 243.71626974114707,
+      "pct_of_mean": 4.77879136735683
+    },
+    "extrapolation": {
+      "T_C": 365.0,
+      "raw": 1.271143599868946,
+      "final": 1.0,
+      "raw_exceeds_1": true
+    }
+  }
+}

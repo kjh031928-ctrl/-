@@ -1,0 +1,45 @@
+{
+  "model": "gbr",
+  "feature_set": "I1",
+  "label": "r0",
+  "weighted": true,
+  "hyperparams": {
+    "alpha": 0.9,
+    "ccp_alpha": 0.0,
+    "criterion": "deprecated",
+    "init": null,
+    "learning_rate": 0.1,
+    "loss": "squared_error",
+    "max_depth": 3,
+    "max_features": null,
+    "max_leaf_nodes": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "n_estimators": 100,
+    "n_iter_no_change": null,
+    "random_state": 42,
+    "subsample": 1.0,
+    "tol": 0.0001,
+    "validation_fraction": 0.1,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "seed": 42,
+  "timestamp": "2026-07-22T15:07:54",
+  "n_train": 1924,
+  "n_valid": 661,
+  "metrics": {
+    "conversion": {
+      "rmse": 0.10004283775079689,
+      "mae": 0.06803880186266786,
+      "mape": 9.421270738084406,
+      "r2": 0.6101422755180559
+    },
+    "cumene_kgh": {
+      "rmse": 737.2092217488263,
+      "pct_of_mean": 14.267939466478936
+    }
+  }
+}

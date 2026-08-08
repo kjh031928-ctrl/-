@@ -1,0 +1,33 @@
+{
+  "spearman_valid_I1_I1b": 0.2833333333333333,
+  "spearman_block20_I1_I1b": 0.7999999999999999,
+  "n_significant_reversals": 1,
+  "reversals": [
+    [
+      [
+        "Poly2",
+        "logit"
+      ],
+      [
+        "Poly2",
+        "log1m"
+      ],
+      0.005178038407873755,
+      -0.012482086056649716
+    ]
+  ],
+  "grid_winner": {
+    "model": "Ridge Poly2",
+    "transform": "log1m",
+    "input": "I1b",
+    "block20": 0.007249,
+    "valid": 0.018415
+  },
+  "sequential_winner": "Ridge Poly2/logit/I1",
+  "deploy_linear1_i1b": {
+    "i1": 0.02098700107916805,
+    "i1b": 0.02285342859964189,
+    "verdict": "악화"
+  },
+  "phys_all_ok": false
+}

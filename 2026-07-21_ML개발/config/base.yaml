@@ -1,0 +1,52 @@
+# 공통 설정 (base.yaml)
+# 여기의 값은 전부 '확정 사항'이며 근거를 주석으로 단다.
+# 임의 판단 금지 — 지시서/문제/데이터에 없는 값은 넣지 않는다 (절대규칙 0.2, 0.3).
+
+# --- 재현성 (절대규칙 0.6) ---
+seed: 42
+
+# --- 경로 ---
+paths:
+  data_xlsx: "data/processed/cumene_ml_training_data.xlsx"   # 정본 (3066x28)
+  data_sheet: "Data"
+  labels_recycle1: "data/processed/labels_recycle1.csv"  # Phase 3 생성 r1 라벨(별도 파일), Timestamp로 병합
+  # 원본 CSV는 읽기 전용, 부모 폴더에 위치 (절대규칙 0.1) — data/raw/README.md 참조
+  raw_csv: "../2026 Chemical Engineering Process design competition_rev0_Attachment1.csv"
+  results_dir: "results"
+  onnx_dir: "onnx"
+
+# --- 데이터 분할 (지시서 §3.3, 엑셀 Split 컬럼 그대로) ---
+split:
+  column: "Split"
+  train_value: "학습"          # 10/13~10/16 (1924행)
+  valid_value: "검증"          # 10/17-18 (661행) — 최종 평가 1회만 (절대규칙 0.5)
+  normalcheck_value: "정상운전검사"  # 10/12 (481행) — 학습·검증 금지
+
+# --- 입력 변수 세트 (지시서 §3.1, §4.5) ---
+features:
+  I1: ["TT-1006.PV", "FT-1004.PV", "FRC-1004.PV"]           # 핵심 3
+  I2: ["TT-1006.PV", "FT-1004.PV", "FRC-1004.PV", "PT-1004.PV"]  # + 프로펜 공급압력
+  I3: ["TT-1006.PV", "FT-1004.PV", "FRC-1004.PV", "PT-1100.PV"]  # + 반응기 출구압력
+# ONNX 입력 순서 고정 (지시서 §4.11): [TT-1006, FT-1004, FRC-1004] (+압력)
+
+# --- 라벨 (지시서 §3.2, §4.3) ---
+labels:
+  r0: "X_propene_conversion"   # 재순환 큐멘 0 mol% (엑셀 기존)
+  r1: "X_propene_recycle1"     # 재순환 큐멘 1 mol% (Phase 3에서 생성)
+
+# --- 학습 가중치 (README, 지시서 §4.5) ---
+weight_column: "ML_weight"     # 학습에만 적용, 검증 지표 계산에는 미적용
+
+# --- 물성 상수 (AVEVA 제공값, 대체 금지 — 지시서 §3.4) ---
+properties:
+  MW_kg_per_kmol:   {benzene: 78.115, propene: 42.081, propane: 44.097, cumene: 120.196}
+  Tc_K:             {benzene: 562.6,  propene: 364.95, propane: 369.82, cumene: 631.05}
+  Pc_kPa:           {benzene: 4924.39, propene: 4620.42, propane: 4249.57, cumene: 3208.96}
+  omega:            {benzene: 0.209,  propene: 0.1435, propane: 0.1529, cumene: 0.3266}
+  kij:              # 명시된 2쌍만 비영, 나머지 4쌍 0
+    benzene_propane: 0.02
+    propene_propane: 0.0083
+  R_J_per_mol_K: 8.314462618
+
+# --- 프로펜 피드 질량분율 (지시서 §3.4, Appendix B Table 3) ---
+propene_feed_mass_fraction: {propene: 0.94773, propane: 0.05227}  # 검산 n_propene/n_propane=19.000

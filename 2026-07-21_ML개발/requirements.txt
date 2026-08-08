@@ -1,0 +1,12 @@
+# 큐멘 반응기 대리모델 — 파이썬 의존성
+# 각 패키지의 근거(출처)를 주석으로 명시한다.
+
+numpy>=2.0            # 수치연산 (설치확인 2.5.1)
+pandas>=2.2           # 엑셀 로딩/데이터프레임 (설치확인 3.0.3)
+openpyxl>=3.1         # .xlsx 읽기 (pandas 엔진)
+scipy>=1.11           # SRK 역산 brentq (지시서 §4.3)
+scikit-learn>=1.4     # LinearRegression / GradientBoostingRegressor (PDF §3.1, 지시서 §4.5)
+onnx>=1.16            # ONNX 모델 포맷 (PDF §3.1, 설치확인 1.22.0)
+skl2onnx>=1.16        # scikit-learn -> ONNX 변환 (지시서 §4.11)
+onnxruntime>=1.17     # ONNX 추론 검증 (export 후 sanity check)
+pyyaml>=6.0           # config/*.yaml 로딩

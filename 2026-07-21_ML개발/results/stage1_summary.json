@@ -1,0 +1,23 @@
+{
+  "winner_block20": "Ridge Poly2",
+  "valid_best": "Ridge Poly2",
+  "tie_with_valid_best": [
+    "Ridge Poly2",
+    "Poly 2차",
+    "Ridge 1차",
+    "Linear 1차",
+    "PLS",
+    "SVR(linear)",
+    "MLP(16,)"
+  ],
+  "spearman_loco4_valid": 0.3969508752117449,
+  "spearman_block20_valid": 0.821569734613213,
+  "blocklen_flips": [
+    "Poly 2차",
+    "Ridge 1차",
+    "Linear 1차",
+    "PLS",
+    "SVR(linear)",
+    "SVR(RBF)"
+  ]
+}

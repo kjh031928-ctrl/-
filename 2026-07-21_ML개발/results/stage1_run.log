@@ -1,0 +1,33 @@
+Stage 1 개편 — 22개 모델. 학습 1924 → 검증 661. 타깃 logit(r1), 입력 I1. 승자선택=블록20%.
+
+  [Dummy(mean)           ] block20=0.06768 valid=0.18537 LOCO5=0.1139 ONNX=X (0.5s)
+  [Linear 1차             ] block20=0.00837 valid=0.02099 LOCO5=0.0598 ONNX=O (0.1s)
+  [Poly 2차               ] block20=0.00746 valid=0.02111 LOCO5=0.1573 ONNX=O (0.1s)
+  [Poly 3차               ] block20=0.00979 valid=0.37714 LOCO5=0.2193 ONNX=O (0.1s)
+  [Ridge 1차              ] block20=0.00829 valid=0.02232 LOCO5=0.0572 ONNX=O (0.1s)
+  [Ridge Poly2           ] block20=0.00741 valid=0.01929 LOCO5=0.1033 ONNX=O (0.1s)
+  [Lasso                 ] block20=0.00822 valid=0.03636 LOCO5=0.0353 ONNX=O (0.1s)
+  [ElasticNet            ] block20=0.00817 valid=0.02925 LOCO5=0.0318 ONNX=O (0.1s)
+  [PLS                   ] block20=0.00837 valid=0.02099 LOCO5=0.0598 ONNX=O (0.1s)
+  [KNN                   ] block20=0.01300 valid=0.07894 LOCO5=0.0684 ONNX=O (0.4s)
+  [SVR(RBF)              ] block20=0.01043 valid=0.05873 LOCO5=0.0629 ONNX=O (10.3s)
+  [SVR(linear)           ] block20=0.00855 valid=0.02353 LOCO5=0.0420 ONNX=O (83.3s)
+  [GaussianProcess       ] block20=0.07490 valid=0.16397 LOCO5=0.1247 ONNX=O (252.8s)
+  [DecisionTree          ] block20=0.01278 valid=0.10052 LOCO5=0.0789 ONNX=O (0.3s)
+  [RandomForest          ] block20=0.01255 valid=0.09970 LOCO5=0.0722 ONNX=O (31.1s)
+  [ExtraTrees            ] block20=0.01142 valid=0.07877 LOCO5=0.0681 ONNX=O (14.8s)
+  [GradientBoosting      ] block20=0.01483 valid=0.07940 LOCO5=0.0676 ONNX=O (14.5s)
+  [HistGradientBoosting  ] block20=0.01335 valid=0.09371 LOCO5=0.0692 ONNX=X (27.6s)
+  [AdaBoost              ] block20=0.03046 valid=0.10810 LOCO5=0.0835 ONNX=O (3.7s)
+  [MLP(16,)              ] block20=0.02355 valid=0.04527 LOCO5=0.0877 ONNX=O (2.4s)
+  [MLP(64, 64)           ] block20=0.00888 valid=0.05171 LOCO5=0.0922 ONNX=O (6.9s)
+  [MLP(128, 128)         ] block20=0.00908 valid=0.03680 LOCO5=0.0875 ONNX=O (24.8s)
+
+승자(블록20% 최우수): Ridge Poly2 (block20 0.007409, 검증 0.019293)
+검증 최우수(확인용): Ridge Poly2 (검증 0.019293)
+검증-최우수와 통계적으로 구분되지 않는 모델(잭나이프 7): ['Ridge Poly2', 'Poly 2차', 'Ridge 1차', 'Linear 1차', 'PLS', 'SVR(linear)', 'MLP(16,)']
+Spearman(LOCO4, 검증)=+0.397 / Spearman(블록20%, 검증)=+0.822
+블록길이 1~180분에서 결론이 바뀌는 쌍: ['Poly 2차', 'Ridge 1차', 'Linear 1차', 'PLS', 'SVR(linear)', 'SVR(RBF)']
+
+저장: stage1_models.csv, stage1_pairwise.csv, stage1_rank_compare.csv, stage1_blocklen.csv, stage1_details.json
+EXIT 0

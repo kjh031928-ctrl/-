@@ -1,0 +1,34 @@
+{
+  "model": "linear2_lasso_a0.1",
+  "feature_set": "I1",
+  "label": "r1",
+  "weighted": true,
+  "hyperparams": {
+    "method": "lasso",
+    "alpha": 0.1,
+    "postprocess": "hardclip",
+    "logit_eps": null
+  },
+  "seed": 42,
+  "timestamp": "2026-07-22T07:58:47.589893+00:00",
+  "n_train": 1924,
+  "n_valid": 661,
+  "metrics": {
+    "conversion": {
+      "rmse": 0.05429385362741615,
+      "mae": 0.04279518705077761,
+      "mape": 7.30585639920363,
+      "r2": 0.8855653594904696
+    },
+    "cumene_kgh": {
+      "rmse": 397.0376209483179,
+      "pct_of_mean": 7.785118152017162
+    },
+    "extrapolation": {
+      "T_C": 365.0,
+      "raw": 1.04472851685163,
+      "final": 1.0,
+      "raw_exceeds_1": true
+    }
+  }
+}

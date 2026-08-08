@@ -1,0 +1,22 @@
+﻿model,indist_L1,indist_L15,indist_L30,indist_L60,indist_L120,indist_L180,conclusion_stable
+Poly 2차,False,True,True,True,True,True,False
+ElasticNet,False,False,False,False,False,False,True
+Lasso,False,False,False,False,False,False,True
+Ridge 1차,False,True,True,True,False,False,False
+Linear 1차,False,True,True,True,True,False,False
+PLS,False,True,True,True,True,False,False
+SVR(linear),False,True,True,False,False,False,False
+"MLP(64, 64)",False,False,False,False,False,False,True
+"MLP(128, 128)",False,False,False,False,False,False,True
+Poly 3차,False,False,False,False,False,False,True
+SVR(RBF),False,False,False,False,True,True,False
+ExtraTrees,False,False,False,False,False,False,True
+RandomForest,False,False,False,False,False,False,True
+DecisionTree,False,False,False,False,False,False,True
+KNN,False,False,False,False,False,False,True
+HistGradientBoosting,False,False,False,False,False,False,True
+GradientBoosting,False,False,False,False,False,False,True
+"MLP(16,)",False,False,False,False,False,False,True
+AdaBoost,False,False,False,False,False,False,True
+Dummy(mean),False,False,False,False,False,False,True
+GaussianProcess,False,False,False,False,False,False,True

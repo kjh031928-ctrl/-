@@ -1,0 +1,34 @@
+{
+  "model": "linear3_logit_invT",
+  "feature_set": "I1",
+  "label": "r0",
+  "weighted": false,
+  "hyperparams": {
+    "method": "logit",
+    "input_transform": "invT",
+    "note_1000_scale": "1000/T_K 스케일은 결과 무관(스케일 불변 실증)",
+    "logit_eps": 1e-06
+  },
+  "seed": 42,
+  "timestamp": "2026-07-22T11:30:11.404340+00:00",
+  "n_train": 1924,
+  "n_valid": 661,
+  "metrics": {
+    "conversion": {
+      "rmse": 0.02401575823899965,
+      "mae": 0.01690860026801179,
+      "mape": 2.5277424868002263,
+      "r2": 0.9775339487518391
+    },
+    "cumene_kgh": {
+      "rmse": 177.81358225720354,
+      "pct_of_mean": 3.4414021869465197
+    },
+    "extrapolation": {
+      "T_C": 365.0,
+      "final": 0.9642169568803906,
+      "raw_exceeds_1": false
+    },
+    "overall_bias_kgh": -14.918520970461865
+  }
+}

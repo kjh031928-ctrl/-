@@ -1,0 +1,29 @@
+{
+  "model": "linear",
+  "feature_set": "I2",
+  "label": "r1",
+  "weighted": false,
+  "hyperparams": {
+    "copy_X": true,
+    "fit_intercept": true,
+    "n_jobs": null,
+    "positive": false,
+    "tol": 1e-06
+  },
+  "seed": 42,
+  "timestamp": "2026-07-22T05:59:41.952014+00:00",
+  "n_train": 1924,
+  "n_valid": 661,
+  "metrics": {
+    "conversion": {
+      "rmse": 0.03469534482877419,
+      "mae": 0.022932927607912736,
+      "mape": 3.162296702990597,
+      "r2": 0.9532696977005475
+    },
+    "cumene_kgh": {
+      "rmse": 254.98866439004087,
+      "pct_of_mean": 4.9998206088382755
+    }
+  }
+}

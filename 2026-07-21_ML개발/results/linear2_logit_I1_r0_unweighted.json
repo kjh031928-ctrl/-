@@ -1,0 +1,34 @@
+{
+  "model": "linear2_logit",
+  "feature_set": "I1",
+  "label": "r0",
+  "weighted": false,
+  "hyperparams": {
+    "method": "logit",
+    "alpha": null,
+    "postprocess": "logit-sigmoid",
+    "logit_eps": 1e-06
+  },
+  "seed": 42,
+  "timestamp": "2026-07-22T07:58:47.485866+00:00",
+  "n_train": 1924,
+  "n_valid": 661,
+  "metrics": {
+    "conversion": {
+      "rmse": 0.02221984623701764,
+      "mae": 0.01573659301331192,
+      "mape": 2.4001276105501903,
+      "r2": 0.9807683636741299
+    },
+    "cumene_kgh": {
+      "rmse": 164.86537677748797,
+      "pct_of_mean": 3.190802755287407
+    },
+    "extrapolation": {
+      "T_C": 365.0,
+      "raw": 0.9684298198524763,
+      "final": 0.9684298198524763,
+      "raw_exceeds_1": false
+    }
+  }
+}

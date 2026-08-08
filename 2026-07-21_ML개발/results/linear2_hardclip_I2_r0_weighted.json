@@ -1,0 +1,34 @@
+{
+  "model": "linear2_hardclip",
+  "feature_set": "I2",
+  "label": "r0",
+  "weighted": true,
+  "hyperparams": {
+    "method": "hardclip",
+    "alpha": null,
+    "postprocess": "hardclip",
+    "logit_eps": null
+  },
+  "seed": 42,
+  "timestamp": "2026-07-22T07:58:48.185062+00:00",
+  "n_train": 1924,
+  "n_valid": 661,
+  "metrics": {
+    "conversion": {
+      "rmse": 0.0301380209763797,
+      "mae": 0.020815833473694065,
+      "mape": 2.879638935789062,
+      "r2": 0.9646195297510832
+    },
+    "cumene_kgh": {
+      "rmse": 222.19837879664004,
+      "pct_of_mean": 4.300425068882779
+    },
+    "extrapolation": {
+      "T_C": 365.0,
+      "raw": 1.273928317937978,
+      "final": 1.0,
+      "raw_exceeds_1": true
+    }
+  }
+}
