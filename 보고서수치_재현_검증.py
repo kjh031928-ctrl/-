@@ -138,6 +138,9 @@ chk("F1 의 B/P 계수", m_f1.coef_[2], 7.98, 0.02, " kPa")
 chk("F2 의 B/P 계수", m_d.coef_[2], -1.01, 0.02, " kPa")
 fl2, bp2 = mono(m_d)
 chk("F2 27점 유량 방향", fl2, 9, 0); chk("F2 27점 B/P 방향", bp2, 9, 0)
+# 주의: 트리 두 값은 입력 배열의 1e-12 수준 차이에도 4째 자리가 바뀐다(§3.4.4 각주).
+# 여기서는 마스터 CSV 경로 기준값으로 대조한다. 보고서 표는 원 스크리닝(onnx2_screen_ext.py)
+# 경로 기준(GBR 0.4507 · RF 0.6730 · B/P 3/9)이며, 두 값 모두 같은 모델·같은 seed 의 결과다.
 for nm, est, ref_r, ref_bp in (("GBR", GradientBoostingRegressor(**GBR_DP), 0.4413, 9),
                                ("RF", RandomForestRegressor(**RF_DP), 0.6680, 2)):
     est.fit(Xtr, ytr); fl, bp = mono(est)
