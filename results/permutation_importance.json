@@ -36,36 +36,36 @@
       "n_rows": 3066,
       "n_blocks": 52,
       "block_sizes_last": 6,
-      "baseline_rmse": 0.014470882686040258,
+      "baseline_rmse": 0.01449761421389691,
       "per_input": {
         "TT-1006.PV": {
-          "delta_rmse_mean": 0.17111320194105079,
-          "delta_rmse_std": 0.011968449537230606,
-          "delta_rmse_se": 0.0008462971828064758,
-          "share_pct": 56.450009245769884
+          "delta_rmse_mean": 0.17114070760871664,
+          "delta_rmse_std": 0.01197249968711249,
+          "delta_rmse_se": 0.0008465835716511059,
+          "share_pct": 56.47175646842406
         },
         "FT-1004.PV": {
-          "delta_rmse_mean": 0.09863871916495494,
-          "delta_rmse_std": 0.007543583139282551,
-          "delta_rmse_se": 0.0005334118792231196,
-          "share_pct": 32.54077736661639
+          "delta_rmse_mean": 0.09860877331681817,
+          "delta_rmse_std": 0.007545746653603631,
+          "delta_rmse_se": 0.0005335648627878826,
+          "share_pct": 32.53820035107629
         },
         "FRC-1004.PV": {
-          "delta_rmse_mean": 0.03337150478408529,
-          "delta_rmse_std": 0.003137727342030491,
-          "delta_rmse_se": 0.00022187082810642018,
-          "share_pct": 11.009213387613732
+          "delta_rmse_mean": 0.03330591935125527,
+          "delta_rmse_std": 0.003134407747242794,
+          "delta_rmse_se": 0.00022163609730790296,
+          "share_pct": 10.990043180499647
         }
       },
-      "delta_sum": 0.303123425890091,
+      "delta_sum": 0.30305540027679007,
       "grouped": {
         "cols": [
           "FT-1004.PV",
           "FRC-1004.PV"
         ],
-        "delta_rmse_mean": 0.08285737705417466,
-        "delta_rmse_std": 0.006789258795261651,
-        "delta_rmse_se": 0.00048007309333599233
+        "delta_rmse_mean": 0.08281367077425557,
+        "delta_rmse_std": 0.006789928700218757,
+        "delta_rmse_se": 0.00048012046276978436
       },
       "pairwise_corr": {
         "TT-1006.PV × FT-1004.PV": -0.3361842050211616,
@@ -78,12 +78,12 @@
       "n_rows": 3066,
       "n_blocks": 52,
       "block_sizes_last": 6,
-      "baseline_rmse": 0.11555977823113533,
+      "baseline_rmse": 0.11555977823113532,
       "per_input": {
         "TT-1006.PV": {
           "delta_rmse_mean": 0.4999143918634927,
-          "delta_rmse_std": 0.040409339343829544,
-          "delta_rmse_se": 0.0028573717873290223,
+          "delta_rmse_std": 0.04040933934382958,
+          "delta_rmse_se": 0.0028573717873290245,
           "share_pct": 9.503538339949309
         },
         "total_flow_kgh": {
@@ -158,36 +158,36 @@
       "n_rows": 661,
       "n_blocks": 12,
       "block_sizes_last": 1,
-      "baseline_rmse": 0.02098700107916805,
+      "baseline_rmse": 0.02096975226127012,
       "per_input": {
         "TT-1006.PV": {
-          "delta_rmse_mean": 0.18804216052005798,
-          "delta_rmse_std": 0.03419343083523301,
-          "delta_rmse_se": 0.0024178406815626454,
-          "share_pct": 74.2567999429095
+          "delta_rmse_mean": 0.18822226711571613,
+          "delta_rmse_std": 0.034220080499327725,
+          "delta_rmse_se": 0.002419725097382417,
+          "share_pct": 74.26540154935523
         },
         "FT-1004.PV": {
-          "delta_rmse_mean": 0.04622035891638117,
-          "delta_rmse_std": 0.010442436081208649,
-          "delta_rmse_se": 0.0007383917365129712,
-          "share_pct": 18.252161833553746
+          "delta_rmse_mean": 0.0462559943830388,
+          "delta_rmse_std": 0.010444830786332173,
+          "delta_rmse_se": 0.0007385610677361499,
+          "share_pct": 18.250869302350804
         },
         "FRC-1004.PV": {
-          "delta_rmse_mean": 0.01896972416230138,
-          "delta_rmse_std": 0.005464598010817184,
-          "delta_rmse_se": 0.00038640543099073495,
-          "share_pct": 7.491038223536763
+          "delta_rmse_mean": 0.01896716960233124,
+          "delta_rmse_std": 0.005463054295000655,
+          "delta_rmse_se": 0.0003862962737985257,
+          "share_pct": 7.483729148293947
         }
       },
-      "delta_sum": 0.2532322435987405,
+      "delta_sum": 0.2534454311010862,
       "grouped": {
         "cols": [
           "FT-1004.PV",
           "FRC-1004.PV"
         ],
-        "delta_rmse_mean": 0.04665589240476402,
-        "delta_rmse_std": 0.010907791961904922,
-        "delta_rmse_se": 0.0007712973664035086
+        "delta_rmse_mean": 0.04668612556879533,
+        "delta_rmse_std": 0.01090890942836452,
+        "delta_rmse_se": 0.0007713763832146416
       },
       "pairwise_corr": {
         "TT-1006.PV × FT-1004.PV": -0.18473794060536353,
@@ -200,36 +200,36 @@
       "n_rows": 661,
       "n_blocks": 12,
       "block_sizes_last": 1,
-      "baseline_rmse": 0.1909675803301893,
+      "baseline_rmse": 0.19096758033018665,
       "per_input": {
         "TT-1006.PV": {
-          "delta_rmse_mean": 0.5764870151768672,
-          "delta_rmse_std": 0.11446411128912277,
-          "delta_rmse_se": 0.008093834929503036,
-          "share_pct": 13.532803230129927
+          "delta_rmse_mean": 0.5764870151768692,
+          "delta_rmse_std": 0.11446411128912291,
+          "delta_rmse_se": 0.008093834929503045,
+          "share_pct": 13.532803230129954
         },
         "total_flow_kgh": {
-          "delta_rmse_mean": 3.5432811375068103,
-          "delta_rmse_std": 0.5722363352014509,
-          "delta_rmse_se": 0.04046321930622842,
-          "share_pct": 83.17711441982662
+          "delta_rmse_mean": 3.543281137506814,
+          "delta_rmse_std": 0.5722363352014511,
+          "delta_rmse_se": 0.04046321930622843,
+          "share_pct": 83.17711441982658
         },
         "FRC-1004.PV": {
-          "delta_rmse_mean": 0.14015497908369665,
-          "delta_rmse_std": 0.04025506632260435,
-          "delta_rmse_se": 0.0028464630373827753,
-          "share_pct": 3.2900823500434515
+          "delta_rmse_mean": 0.14015497908369748,
+          "delta_rmse_std": 0.0402550663226045,
+          "delta_rmse_se": 0.0028464630373827857,
+          "share_pct": 3.2900823500434666
         }
       },
-      "delta_sum": 4.2599231317673745,
+      "delta_sum": 4.259923131767381,
       "grouped": {
         "cols": [
           "total_flow_kgh",
           "FRC-1004.PV"
         ],
-        "delta_rmse_mean": 3.3817437254773663,
-        "delta_rmse_std": 0.5396961322242244,
-        "delta_rmse_se": 0.038162279487590066
+        "delta_rmse_mean": 3.38174372547737,
+        "delta_rmse_std": 0.5396961322242246,
+        "delta_rmse_se": 0.03816227948759008
       },
       "pairwise_corr": {
         "TT-1006.PV × total_flow_kgh": -0.011993911686892197,

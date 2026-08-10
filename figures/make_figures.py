@@ -137,10 +137,10 @@ R_CONV, R_F2, R_F1 = rmse(p_conv, y_conv), rmse(p_dp_f2, y_dp), rmse(p_dp_f1, y_
 
 print("=" * 74)
 print("자체검증 — 학습(10/13~16) 적합 → 검증(10/17-18) held-out RMSE")
-print(f"  전환율 로짓-선형   RMSE = {R_CONV:.5f}   (기준 0.02099)")
+print(f"  전환율 로짓-선형   RMSE = {R_CONV:.5f}   (기준 0.02097)")
 print(f"  ΔP F2 (총유량)     RMSE = {R_F2:.5f}   (기준 0.1910)")
 print(f"  ΔP F1 (프로펜)     RMSE = {R_F1:.5f}   (기준 0.1479)")
-assert abs(R_CONV - 0.02099) < 5e-5, f"전환율 RMSE 재현 실패: {R_CONV}"
+assert abs(R_CONV - 0.02097) < 5e-5, f"전환율 RMSE 재현 실패: {R_CONV}"
 assert abs(R_F2 - 0.1910) < 5e-4, f"ΔP F2 RMSE 재현 실패: {R_F2}"
 assert abs(R_F1 - 0.1479) < 5e-4, f"ΔP F1 RMSE 재현 실패: {R_F1}"
 print("  → 세 값 모두 재현됨 (assert 통과)")

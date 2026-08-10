@@ -70,11 +70,11 @@ LOGIT_JSON = ROOT / "results" / "screening_all_models.json"   # 대조용(로짓
 
 # 사전에 재현해 둔 기대 앵커 — 어긋나면 재현값을 따르고 콘솔에 명시한다
 ANCHOR = {
-    "linear_raw_rmse": 0.03565,
+    "linear_raw_rmse": 0.03569,
     "linear_raw_holdout_max": 1.008,
-    "linear_raw_grid_max": 1.39,
+    "linear_raw_grid_max": 1.388,
     "linear_raw_grid_over1": 9,
-    "logit_rmse": 0.02099,
+    "logit_rmse": 0.02097,
 }
 NOTE: list[str] = []
 
