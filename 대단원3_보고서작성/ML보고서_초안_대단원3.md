@@ -45,8 +45,19 @@
 
 각 시점의 운전 실측데이터(입력)와 그로부터 산출한 라벨(출력)이 짝으로 존재하므로 **지도학습(supervised learning)**, 출력이 연속량(전환율·압력강하)이므로 **회귀(regression)** 문제다. 라벨이 있어 군집화 등 비지도학습은 해당하지 않는다.
 
-### 3.1.1 지도학습·회귀
-(위 정의)
+### 3.1.1 지도학습·회귀 — 정적 회귀로 정식화한 근거
+
+각 시점의 운전 실측데이터(입력)와 그로부터 산출한 라벨(출력)이 짝으로 존재하므로 지도학습이고, 출력이 연속량이라 회귀다(위 정의).
+
+원자료가 1분 간격 시계열이고 자기상관이 매우 크므로(§3.2.2), "왜 ARIMA·LSTM 같은 시계열 모델을 쓰지 않았나"라는 물음이 자연스럽다. 답은 **문제 정식화가 다르기 때문**이다. 시계열 예측 모델은 y의 과거값으로 y의 미래값을 맞히는 구조(시간이 독립변수)인 반면, 본 과제의 산출은 **조작조건(온도·유량·비율) → 정상상태 출력의 정적 사상**이다. 케이스 스터디는 시간 궤적이 아니라 정상운전 설계점을 요구하고, 배포 형식도 이력을 갖지 않는 3-입력 정적 함수(ONNX)로 고정돼 있다. 따라서 이력·상태에 의존하는 시계열·동적 모델은 산출 정의·배포 형식과 구조적으로 맞지 않아 후보에서 제외하고, 후보를 **정적 지도회귀**로 한정했다. 모델별로 보면:
+
+- **ARIMA·SARIMA** — 정상성·계절성 있는 단변량 미래예측에 최적. 계절성이 없고 산출이 시간 외삽이 아니라 조건 사상이라 부적합.
+- **지수평활(exponential smoothing)** — 최근값에 큰 가중을 주는 평활. 이 개념은 반응기 응답지연(2~3분, 측정값) 진단에만 활용했고 배포 모델은 아니다.
+- **LSTM** — 순차 장거리 종속성에 강하나 대량 데이터·이력 입력이 필요. 자기상관 탓에 유효 표본이 적고 배포가 무상태라 부적합.
+- **GARCH** — 금융 변동성(이분산) 전용이라 본 문제와 무관.
+- **상태공간 모델(state-space)** — 숨은 상태의 시간 진화를 상태식 `xₜ₊₁=A·xₜ+B·uₜ`·관측식 `yₜ=C·xₜ+D·uₜ`로 기술(칼만필터). 반응기 응답지연을 명시적으로 다루는 **원리적 도구**이나, 배포가 이력 없는 정적 함수이고 케이스가 정상상태 설계점이므로 동적 상태를 이월할 곳이 없다. 본 장의 정적 회귀는 이 모델에서 **숨은 동역학을 0으로 둔 특수해**에 해당한다.
+
+데이터의 시계열적 성격을 무시한 것은 아니다 — 자기상관은 무작위 대신 캠페인 단위 분할의 근거로(§3.2.2), 반응기 응답지연(2~3분)은 진단으로 다뤘다. 검토 결과 케이스가 전부 정상운전이고 배포가 정적 함수이므로, 정적 회귀로 확정했다. [ref: Box & Jenkins 1976(ARIMA), Hochreiter & Schmidhuber 1997(LSTM), Kalman 1960(상태공간) — 부록 B]
 
 ### 3.1.2 후보 중 최종 출력 선정
 대단원 2는 세트 1(반응 성능)의 출력 **후보 세 가지**(전환율 X · 출구밀도 ρ_out=AT-1100 · 출구온도 T_out=TT-1100)를 설정하고(§2.2.1), 그중 실제 ML 출력의 **최종 선정은 본 장에 위임**하였다(§2.2.1.2). 세트 2(압력강하)는 대단원 2가 반응기 압력강하 ΔP를 ML 출력으로 **설정**하였다(§2.3.3.3). 아래 표는 본 장이 세트 1에서 전환율 X를 택한 근거다.
@@ -442,6 +453,9 @@ _트리 두 후보는 **sklearn 기본값 · seed=42**다(GBR: n_estimators 100 
 - Bhosekar, A., & Ierapetritou, M. (2018). *Advances in surrogate based modeling, feasibility analysis, and optimization: A review.* Computers & Chemical Engineering, 108, 250–267. — 공정설계 대체모델 개관·선정 기준.
 - McBride, K., & Sundmacher, K. (2019). *Overview of Surrogate Modeling in Chemical Process Engineering.* Chemie Ingenieur Technik, 91(3), 228–239. — 화학공정 대체모델 유형·선택.
 - von Stosch, M., et al. (2014). *Hybrid semi-parametric modeling in process systems engineering: Past, present and future.* Computers & Chemical Engineering, 60, 86–101. — 물리+데이터 하이브리드(§3.6 맥락).
+- Box, G. E. P., & Jenkins, G. M. (1976). *Time Series Analysis: Forecasting and Control* (Revised ed.). Holden-Day. — ARIMA(시계열 예측) 정식화의 표준 원전(§3.1.1 제외 근거).
+- Hochreiter, S., & Schmidhuber, J. (1997). *Long Short-Term Memory.* Neural Computation, 9(8), 1735–1780. — LSTM(순차 딥러닝) 원전(§3.1.1 제외 근거).
+- Kalman, R. E. (1960). *A New Approach to Linear Filtering and Prediction Problems.* Journal of Basic Engineering, 82(1), 35–45. — 상태공간·칼만필터 원전(§3.1.1 제외 근거).
 
 _(선형회귀·정규화(Ridge/Lasso/ElasticNet)·PLS 표준 인용은 ESL로 갈음. 추가 인용 필요 시 보강.)_
 
