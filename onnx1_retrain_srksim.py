@@ -20,7 +20,8 @@
   ★ 기존 배포본과 같은 in-sample 재학습이므로, 아래 검증셋 RMSE 는 성능이 아니라 대조값이다.
 
 산출
-  onnx/reactor_conversion_r1_srksim.onnx   ← 기존 파일을 덮어쓰지 않는다
+  onnx/reactor_conversion_r1.onnx          ← 배포 파일명 유지(AVEVA 플로우시트가 절대경로로 참조)
+  onnx/reactor_conversion_r1_srklit.onnx   ← 교체 전 배포본(문헌 SRK 상수) 보관
 
 재현
   python onnx1_retrain_srksim.py           (저장소 루트에서 실행)
@@ -53,8 +54,8 @@ ROOT = Path(__file__).resolve().parent
 CSV_NEW = ROOT / "ML_마스터데이터_PV (수정).csv"
 CSV_OLD = ROOT / "ML_마스터데이터_PV.csv"
 ONNX_DIR = ROOT / "2026-07-21_ML개발" / "onnx"
-OUT_ONNX = ONNX_DIR / "reactor_conversion_r1_srksim.onnx"
-OLD_ONNX = ONNX_DIR / "reactor_conversion_r1.onnx"
+OUT_ONNX = ONNX_DIR / "reactor_conversion_r1.onnx"          # 배포 파일명(AVEVA 배선 고정)
+OLD_ONNX = ONNX_DIR / "reactor_conversion_r1_srklit.onnx"   # 교체 전 배포본(문헌 SRK) 보관
 OLD_JSON = ROOT / "2026-07-21_ML개발" / "results" / "linear2_logit_I1_r1_unweighted.json"
 
 LOGIT_EPS = 1e-6

@@ -36,36 +36,36 @@
       "n_rows": 3066,
       "n_blocks": 52,
       "block_sizes_last": 6,
-      "baseline_rmse": 0.014533726872573727,
+      "baseline_rmse": 0.014470882686040258,
       "per_input": {
         "TT-1006.PV": {
-          "delta_rmse_mean": 0.17099295570542253,
-          "delta_rmse_std": 0.011966468202731444,
-          "delta_rmse_se": 0.0008461570813004601,
-          "share_pct": 56.464065808554324
+          "delta_rmse_mean": 0.17111320194105079,
+          "delta_rmse_std": 0.011968449537230606,
+          "delta_rmse_se": 0.0008462971828064758,
+          "share_pct": 56.450009245769884
         },
         "FT-1004.PV": {
-          "delta_rmse_mean": 0.09853796622579722,
-          "delta_rmse_std": 0.007543465913867693,
-          "delta_rmse_se": 0.0005334035901345423,
-          "share_pct": 32.53849953444647
+          "delta_rmse_mean": 0.09863871916495494,
+          "delta_rmse_std": 0.007543583139282551,
+          "delta_rmse_se": 0.0005334118792231196,
+          "share_pct": 32.54077736661639
         },
         "FRC-1004.PV": {
-          "delta_rmse_mean": 0.033304081635804714,
-          "delta_rmse_std": 0.003137026059606604,
-          "delta_rmse_se": 0.00022182123995067443,
-          "share_pct": 10.9974346569992
+          "delta_rmse_mean": 0.03337150478408529,
+          "delta_rmse_std": 0.003137727342030491,
+          "delta_rmse_se": 0.00022187082810642018,
+          "share_pct": 11.009213387613732
         }
       },
-      "delta_sum": 0.3028350035670245,
+      "delta_sum": 0.303123425890091,
       "grouped": {
         "cols": [
           "FT-1004.PV",
           "FRC-1004.PV"
         ],
-        "delta_rmse_mean": 0.08274573743526335,
-        "delta_rmse_std": 0.006787581932986613,
-        "delta_rmse_se": 0.00047995452126741285
+        "delta_rmse_mean": 0.08285737705417466,
+        "delta_rmse_std": 0.006789258795261651,
+        "delta_rmse_se": 0.00048007309333599233
       },
       "pairwise_corr": {
         "TT-1006.PV × FT-1004.PV": -0.3361842050211616,
