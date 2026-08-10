@@ -1,0 +1,128 @@
+{
+  "설명": "2차항 외삽 곡률(기울기 부호 반전) 실측 — §3.5.4 근거 ①",
+  "적합": "학습 10/13–16 · seed 42 · Ridge Poly2 alpha=0.01(블록20% 선택)",
+  "학습범위": {
+    "T": [
+      329.977,
+      349.977
+    ],
+    "프로펜": [
+      2499.68,
+      3660.882
+    ],
+    "BP": [
+      4.0,
+      6.0
+    ]
+  },
+  "케이스범위": {
+    "T": [
+      335,
+      365
+    ],
+    "총유량": [
+      15000,
+      18000
+    ],
+    "BP": [
+      4,
+      6
+    ],
+    "프로펜": [
+      2143,
+      3600
+    ]
+  },
+  "반전지점": {
+    "raw|온도 [°C]|1차 선형": {
+      "turn_at": null,
+      "max_pred": 2.8190556360233767,
+      "inside_case_range": false
+    },
+    "raw|온도 [°C]|Poly 2차": {
+      "turn_at": null,
+      "max_pred": 3.6343948507464883,
+      "inside_case_range": false
+    },
+    "raw|온도 [°C]|Ridge Poly2": {
+      "turn_at": null,
+      "max_pred": 3.587140713925774,
+      "inside_case_range": false
+    },
+    "raw|프로펜 [kg/h]|1차 선형": {
+      "turn_at": null,
+      "max_pred": 1.9926711190010167,
+      "inside_case_range": false
+    },
+    "raw|프로펜 [kg/h]|Poly 2차": {
+      "turn_at": 4375.0,
+      "max_pred": 1.0932811157004592,
+      "inside_case_range": false
+    },
+    "raw|프로펜 [kg/h]|Ridge Poly2": {
+      "turn_at": 4700.0,
+      "max_pred": 1.1647198873194888,
+      "inside_case_range": false
+    },
+    "raw|B/P [-]|1차 선형": {
+      "turn_at": null,
+      "max_pred": 1.3798513561510592,
+      "inside_case_range": false
+    },
+    "raw|B/P [-]|Poly 2차": {
+      "turn_at": 5.7499999999999885,
+      "max_pred": 0.9063731717310982,
+      "inside_case_range": true
+    },
+    "raw|B/P [-]|Ridge Poly2": {
+      "turn_at": 6.999999999999984,
+      "max_pred": 0.9493785260010179,
+      "inside_case_range": false
+    },
+    "logit|온도 [°C]|1차 선형": {
+      "turn_at": null,
+      "max_pred": 0.9999656951742978,
+      "inside_case_range": false
+    },
+    "logit|온도 [°C]|Poly 2차": {
+      "turn_at": null,
+      "max_pred": 0.9999999998830835,
+      "inside_case_range": false
+    },
+    "logit|온도 [°C]|Ridge Poly2": {
+      "turn_at": null,
+      "max_pred": 0.9999999995640925,
+      "inside_case_range": false
+    },
+    "logit|프로펜 [kg/h]|1차 선형": {
+      "turn_at": null,
+      "max_pred": 0.9981969468887382,
+      "inside_case_range": false
+    },
+    "logit|프로펜 [kg/h]|Poly 2차": {
+      "turn_at": null,
+      "max_pred": 0.9940097859328646,
+      "inside_case_range": false
+    },
+    "logit|프로펜 [kg/h]|Ridge Poly2": {
+      "turn_at": 5500.0,
+      "max_pred": 0.979737945066749,
+      "inside_case_range": false
+    },
+    "logit|B/P [-]|1차 선형": {
+      "turn_at": null,
+      "max_pred": 0.975212482971816,
+      "inside_case_range": false
+    },
+    "logit|B/P [-]|Poly 2차": {
+      "turn_at": 5.949999999999988,
+      "max_pred": 0.8827351574428496,
+      "inside_case_range": true
+    },
+    "logit|B/P [-]|Ridge Poly2": {
+      "turn_at": 5.899999999999988,
+      "max_pred": 0.8650582794758883,
+      "inside_case_range": true
+    }
+  }
+}
